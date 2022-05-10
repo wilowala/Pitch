@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    {% block styles %}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    {% endblock %}
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-3">
+
+                <div id="nav" >
+
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <div class="container-fluid">
+                          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+                          <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                              <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Profile</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Sign Out</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Sign In</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </nav>
+
+                </div>
+
+                <div id="logo">
+                    <h1>P</h1>
+                    <h2>Pitch App</h2>
+                </div>
+
+            </div>
+
+            <div class="col-9">
+
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
