@@ -135,3 +135,15 @@
     color: #BBB8C1;
     text-decoration: none;
 }
+
+.design:hover{
+    color: #0C2B35;
+}
+
+.card-body p{
+    font-size: 1.105rem;
+}
+
+.card-body h5{
+    font-size: 1.4rem;
+}
