@@ -1,21 +1,11 @@
 {% extends 'base.html'%}
 
 {% block body %}
-<div class="container">
+<div class="container-fluid">
 <div class="row">
 <!-- displaying  Username-->
-  <div class="col-md-4">
+  <div class="col-4 p-5">
     <h1> {{user.username| capitalize}} </h1>
-  </div>
-
-  <!--Display profile photo-->
-  <div class="col-md-4">
-    {% if user == current_user %}
-    <form  action="{{url_for('main.update_pic',uname=user.username)}}" method="post" enctype = "multipart/form-data">
-        <input type="file"  name="photo" class="form-control" required>
-        <input type="submit">
-    </form>
-    {% endif %}
   </div>
 </div>
 {% if user == current_user %}
