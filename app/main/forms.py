@@ -1,14 +1,24 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,TextAreaField,SubmitField,PasswordField,BooleanField
+from wtforms import StringField,TextAreaField,SubmitField,PasswordField,BooleanField,RadioField
 from wtforms.validators import InputRequired,Email,EqualTo
 from ..models import User
 
-class PitchForm(FlaskForm):
+class Pitch(FlaskForm):
 
-    pitch_cartegory = StringField('Pitch Cartegoryt',validators=[InputRequired()])
-    title = StringField('Pitch title',validators=[InputRequired()])
-    pitch = TextAreaField('Pitch')
+    pitch_category = RadioField('Label', choices=[ ('Business','Business'),('Life','Life'),('Education','Education'),('Technology','Technology')],validators=[InputRequired()])
+    pitch_title = StringField('Pitch title',validators=[InputRequired()])
+    pitch_descrip = TextAreaField('Pitch',validators=[InputRequired()])
     submit = SubmitField('Submit')
+
+class Comment(FlaskForm):
+    Comment_descrip =TextAreaField("Comment", validators=[InputRequired()])
+    submit = SubmitField('Submit Comment')
+    
+class Upvote(FlaskForm):
+    submit =SubmitField()
+
+class Downvote(FlaskForm):
+    submit =SubmitField()
 
 class LoginForm(FlaskForm):
     email = StringField('Your Email Address',validators=[InputRequired(),Email()])

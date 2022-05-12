@@ -1,0 +1,17 @@
+{% import 'bootstrap/wtf.html' as wtf %}
+{% extends 'base.html' %}
+{%block styles %}
+    {{super()}}
+    {{ simplemde.css}}
+    {{ simplemde.js }}
+
+{% endblock %} 
+
+{% block body %}
+<div class="container-fluid" style="display: flex; justify-content:center; align-items:center;background:#0C2B35;">
+    <div class="card" style="width: 40%;padding:3rem;margin:2rem 0 22.28rem 0;">
+        {{wtf.quick_form(form)}}
+    </div>
+</div>
+
+{% endblock %}

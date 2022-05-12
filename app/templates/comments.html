@@ -1,0 +1,34 @@
+{% import 'bootstrap/wtf.html' as wtf %}
+{% extends 'base.html' %}
+{%block styles %}
+    {{super()}}
+    {{ simplemde.css}}
+    {{ simplemde.js }}
+
+{% endblock %} 
+
+{% block body %}
+<div class="container-fluid" style="display: flex; justify-content:center; align-items:center;background:#0C2B35;">
+    <div class="card" style="width: 40%;padding:3rem;margin:2rem 0 32.1rem 0;">
+        {{wtf.quick_form(form)}}
+        <div class="comments" style="border: dashed #0C2B35; margin-top:2rem;padding:0.5rem;">
+            <h6>Comments</h6>
+            <ul>
+                {% if comments %}
+                {% for comment in comments %}
+                <div class="row">
+                    <p class=""
+                        style="background-color: #BBB8C1; color:#356372;">{{ comment.description }}<br>
+                        <span class="float-end">Posted by: ~{{comment.user.username}}~</span>
+                    </p>
+                </div>
+                {% endfor %}
+                {% else %}
+                <p style="color:#356372;">No comments yet!</p>
+                {%endif%}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

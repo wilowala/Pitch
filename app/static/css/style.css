@@ -68,7 +68,11 @@
     color: #ffffff;
 }
 
-#cartegory h2{
+#cartegory a{
+    text-decoration: none;
+}
+
+#cartegory a h2{
     display: block;
     margin-left: 25rem;
     color: #BBB8C1;
@@ -76,7 +80,7 @@
     font-weight: 700;
 }
 
-#cartegory h2 span{
+#cartegory a h2 span{
     color: #0C2B35;
 }
 
@@ -125,4 +129,9 @@
 
 .here p:hover{
     color: #BBB8C1;
+}
+
+.design{
+    color: #BBB8C1;
+    text-decoration: none;
 }

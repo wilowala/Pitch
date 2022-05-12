@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    {% block styles %}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    {% endblock %}
+    <div class="container-fluid page">
+
+        <div class="row" style="height: 100vh !important;">
+
+            <div class="col-3" id="nav">
+
+                <nav class="navbar navbar-expand-lg" id="navbar">
+
+                    <div class="container-fluid">
+
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon bg-dark" style="color: #BBB8C1; border: 0.156rem solid #BBB8C1;"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                {% if current_user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="{{url_for('main.profile',uname=current_user.username)}}">{{current_user.username}}'s Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="{{url_for('main.logout')}}">Sign Out</a>
+                                </li>
+                                {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="{{url_for('main.login')}}">Log In</a>
+                                </li>
+                                {%endif%}
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+                <div id="logo">
+                    <h1>P</h1>
+                    <h2>Pitch App</h2>
+                </div>
+
+            </div>
+
+            <div class="col-9" id="func">
+
+                <div class="row" id="cartegory">
+                    <div class="col pitch1">
+                        <h1>Category: <span>{{title}}</span></h1>
+                    </div>
+
+                    <div class="col pitch2">
+                        <a href="{{url_for('main.new_pitch')}}"><h2><span><i class="fa-solid fa-plus"></i></span>Pitch</h2></a>
+                    </div>
+                </div>
+                
+                <div class="row" id="carousel">
+                  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+
+                      {% for pitch in business %}
+                        
+                      <div class="carousel-item {% if loop.index == 1 %}active{% endif %}">
+
+                        <div class="card d-block mx-auto card1 p-3" style="width: 18rem;">
+                          <div class="card-body">
+                            <h5 class="card-title text-center">{{pitch.title}}</h5>
+                            <p class="card-text text-center">{{pitch.description}}</p>
+                            <div class="d-flex justify-content-around">
+                              <p class="card-text text-center">Author: ~<i>{{pitch.user.username}}</i>~</p>
+                              <P class="card-text text-center">On: {{ pitch.posted.strftime('%I:%M %p') |strftime }}</P>
+                            </div>
+                            <div class="row text-center">
+                              <div class="col d-block">
+                                  <a href="{{url_for('main.upvote_pitch',pitch_id = pitch.id)}}" class="design">
+                                    <h6><i class="fa-solid fa-thumbs-up"></i></h6>
+                                    <p>{{pitch.upvotes.count()}}</p>
+                                  </a>
+                              </div>
+                              <div class="col d-block">
+                                  <a href="{{url_for('main.downvote_pitch',pitch_id = pitch.id)}}" class="design">
+                                    <h6><i class="fa-solid fa-thumbs-down"></i></h6>
+                                    <p>{{pitch.downvotes.count()}}</p>
+                                  </a>
+                              </div>
+                              <div class="col d-block">
+                                  <a href="{{url_for('main.new_comment',pitch_id = pitch.id)}}" class="design">
+                                    <h6><i class="fa-solid fa-message"></i></h6>
+                                    <p>Add</p>
+                                  </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+
+                      {% endfor %}
+
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                
+                <div class="row d-flex justify-content-center align-item-center" id="card2">
+                    <div class="col-md-2 routes">
+                      <div class="card here">
+                        <div class="card-body">
+                            <a href="{{url_for('main.home')}}"><i class="fa-solid fa-house-chimney-window"></i></a>
+                            <p class="card-text text-center">Home</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-2 routes">
+                      <div class="card here">
+                        <div class="card-body">
+                            <a href="{{url_for('main.business')}}"><i class="fa-solid fa-chart-simple"></i></i></i></a>
+                            <p class="card-text text-center">Business</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-2 routes">
+                      <div class="card here">
+                        <div class="card-body">
+                            <a href="{{url_for('main.life')}}"><i class="fa-solid fa-id-card"></i></a>
+                            <p class="card-text text-center">Life-style</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-2 routes">
+                      <div class="card here">
+                        <div class="card-body">
+                            <a href="{{url_for('main.education')}}"><i class="fa-solid fa-building-columns"></i></a>
+                            <p class="card-text text-center">Education</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-2 routes">
+                      <div class="card here">
+                        <div class="card-body">
+                            <a href="{{url_for('main.technology')}}"><i class="fa-solid fa-microchip"></i></a>
+                            <p class="card-text text-center">Technology</p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
