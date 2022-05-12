@@ -14,13 +14,14 @@
         <div class="comments" style="border: dashed #0C2B35; margin-top:2rem;padding:0.5rem;">
             <h6>Comments</h6>
             <ul>
-                {% if comments %}
-                {% for comment in comments %}
+                {% if all_comments %}
+                {% for comment in all_comments %}
                 <div class="row">
-                    <p class=""
-                        style="background-color: #BBB8C1; color:#356372;">{{ comment.description }}<br>
-                        <span class="float-end">Posted by: ~{{comment.user.username}}~</span>
-                    </p>
+                    <div class="d-flex justify-content-between"
+                        style="background-color: #bbb8c142; color:#356372;width:80%;padding:0.5rem;margin:0.5rem;border-radius:0.25rem;">
+                        <p>{{ comment.description }}</p> 
+                        <p>Posted by: ~{{comment.user.username}}~</p>
+                    </div>
                 </div>
                 {% endfor %}
                 {% else %}
