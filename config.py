@@ -23,6 +23,7 @@ class Config:
 
 class ProdConfig(Config):
     """Production Config Class"""
+    
     SQLALCHEMY_DATABASE_URI = "postgresql://nzkxvkskpjicmo:1b06c694733fa527e7398f05bc4804d8f8d08302bad21d9c61bad3947b404777@ec2-52-4-104-184.compute-1.amazonaws.com:5432/d4bhl24qmjig4g"
 
 class DevConfig(Config):
