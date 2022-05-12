@@ -1,8 +1,8 @@
-"""Initial migrate
+"""hosting on cloud
 
-Revision ID: c9625f2349e6
+Revision ID: 8a6fe05cb70f
 Revises: 
-Create Date: 2022-05-12 12:21:44.235604
+Create Date: 2022-05-12 22:31:42.205070
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'c9625f2349e6'
+revision = '8a6fe05cb70f'
 down_revision = None
 branch_labels = None
 depends_on = None

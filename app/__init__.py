@@ -19,12 +19,12 @@ simple = SimpleMDE()
 moment = Moment()
 
 
-def create_app(config_name):
+def create_app(production):
 
     app = Flask(__name__)
 
     #app configurations
-    app.config.from_object(config_options[config_name])
+    app.config.from_object(config_options[production])
 
     # Initializing flask extensions
     bootstrap.init_app(app)
