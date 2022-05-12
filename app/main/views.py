@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, request
+from flask import render_template, redirect, url_for, request, flash
 from . import main
 from flask_login import login_user,logout_user,login_required, current_user
 from ..models import User, Pitches, Upvotes,Downvotes,Comments
@@ -121,10 +121,10 @@ def new_comment(pitch_id):
         db.session.commit()
 
 
-        return redirect(url_for('.new_comment', pitch_id= pitch_id))
+        return redirect(url_for('main.home', pitch_id= pitch_id))
 
     all_comments = Comments.query.filter_by(pitch_id = pitch_id).all()
-    return render_template('comments.html', form = form, comment = all_comments, pitch = pitch )
+    return render_template('comments.html', form = form, all_comments = all_comments, pitch = pitch )
 
 
 @main.route('/pitch/upvote/<int:pitch_id>/upvote', methods = ['GET', 'POST'])
