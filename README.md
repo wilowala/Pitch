@@ -1,7 +1,7 @@
 # Pitch
 
 ### Description
-Flask application that keeps up a user up-to-date current unfoldings incase one misses news. Also, it provides various sources from all over the world that one can choose and read from. The application uses News API.
+Flask application that is connected to a database using sqlachemy enabling users to register, login, logout, post a pitch(es), upvote, downvote, comment on various pitches, and see pitches made by other users including themselves.
 
 ### Setup instructions
  ##### You must have the following installed to run this app
@@ -13,7 +13,7 @@ Flask application that keeps up a user up-to-date current unfoldings incase one 
  ##### Clone
  * Launch the terminal on your PC
  * Run the following command: 
-    * git clone https://github.com/wilowala/Realtime-News-App.git
+    * git clone https://github.com/wilowala/Pitch.git
  * Navigate to the app directory using: 
     * cd Realtime-News-App 
  * Open your favorite code editor.
@@ -29,6 +29,7 @@ Flask application that keeps up a user up-to-date current unfoldings incase one 
  * HTML
  * CSS
  * JavaScript
+ * postgreSQL
 
 ### Author
 ~ William Owalla
