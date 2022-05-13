@@ -2,6 +2,8 @@
 
 ### Description
 Flask application that is connected to a database using sqlachemy enabling users to register, login, logout, post a pitch(es), upvote, downvote, comment on various pitches, and see pitches made by other users including themselves.
+![Screenshot from 2022-05-13 02-53-06](https://user-images.githubusercontent.com/98161657/168293542-fa931605-41d5-4356-ad05-8c932b20b362.png)
+
 
 ### Setup instructions
  ##### You must have the following installed to run this app
