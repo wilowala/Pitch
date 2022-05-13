@@ -62,14 +62,14 @@ def profile(uname):
 def business():
     
     business = Pitches.query.filter_by(category = "Business")     
-    title='Business Pitches'
+    title='Business'
     return render_template('business.html', title=title, business=business)
 
 @main.route('/life')
 def life():
     
     life = Pitches.query.filter_by(category = "Life")    
-    title='Life Pitches'
+    title='Life'
     return render_template('life.html', title=title, life=life)
 
 
@@ -77,7 +77,7 @@ def life():
 def education():
     
     education = Pitches.query.filter_by(category = "Education")    
-    title='Education Pitches'
+    title='Education'
     return render_template('education.html', title=title, education=education)
 
 
@@ -85,7 +85,7 @@ def education():
 def technology():
     
     technology = Pitches.query.filter_by(category = "Technology")    
-    title='Technology Pitches'
+    title='Technology'
     return render_template('technology.html', title=title, technology=technology)
 
 

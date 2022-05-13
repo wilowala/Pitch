@@ -11,8 +11,8 @@ class Config:
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
-    MAIL_USERNAME = "owallabilly@gmail.com"
-    MAIL_PASSWORD = "@!vW1lie"
+    MAIL_USERNAME = "billyowalla@gmail.com"
+    MAIL_PASSWORD = "Aivw1234"
 
     print(MAIL_USERNAME)
     print(MAIL_PASSWORD)
@@ -23,7 +23,7 @@ class Config:
 
 class ProdConfig(Config):
     """Production Config Class"""
-    
+
     SQLALCHEMY_DATABASE_URI = "postgresql://nzkxvkskpjicmo:1b06c694733fa527e7398f05bc4804d8f8d08302bad21d9c61bad3947b404777@ec2-52-4-104-184.compute-1.amazonaws.com:5432/d4bhl24qmjig4g"
 
 class DevConfig(Config):
