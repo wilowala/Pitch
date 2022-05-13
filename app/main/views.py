@@ -104,7 +104,7 @@ def new_pitch():
         db.session.add(new_pitch)
         db.session.commit()
         
-        return redirect(url_for('main.login'))
+        return redirect(url_for('main.home'))
     return render_template('pitch.html', form= pitch_form)
 
 
