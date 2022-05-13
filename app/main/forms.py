@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,TextAreaField,SubmitField,PasswordField,BooleanField,RadioField
+from wtforms import StringField,TextAreaField,SubmitField,PasswordField,BooleanField,RadioField,ValidationError
 from wtforms.validators import InputRequired,Email,EqualTo
 from ..models import User
 
@@ -39,4 +39,4 @@ class RegistrationForm(FlaskForm):
 
     def validate_username(self,data_field):
         if User.query.filter_by(username = data_field.data).first():
-            raise ValidationError('That username is taken')
+            raise ValidationError('The username is taken')

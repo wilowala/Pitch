@@ -10,7 +10,9 @@
 </div>
 {% if user == current_user %}
   <div class="d-flex justify-content-around flex-wrap">         
-    {{ Pitches }}
+    {% for pitch in Pitches %}
+      {{pitch}}
+    {% endfor %}
   </div>
 {% endif %}
 </div>
