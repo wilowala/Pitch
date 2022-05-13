@@ -4,8 +4,8 @@ import psycopg2
 class Config:
     """Parent Config Class """
     SECRET_KEY = os.urandom(112139)
-    SQLALCHEMY_DATABASE_URI = "postgresql://lvehippqxcsvwi:ac06666772ef8cb519ff557ec4222c24b552f70dd58e46c4a9d6f1956f28076f@ec2-54-172-175-251.compute-1.amazonaws.com:5432/d9bkvog34oualq"
-                    
+    SQLALCHEMY_DATABASE_URI = "postgresql://nzkxvkskpjicmo:1b06c694733fa527e7398f05bc4804d8f8d08302bad21d9c61bad3947b404777@ec2-52-4-104-184.compute-1.amazonaws.com:5432/d4bhl24qmjig4g"
+                            #    postgresql://lvehippqxcsvwi:ac06666772ef8cb519ff557ec4222c24b552f70dd58e46c4a9d6f1956f28076f@ec2-54-172-175-251.compute-1.amazonaws.com:5432/d9bkvog34oualq
     # "postgresql+psycopg2://username:aivwilie@localhost/pitches"
 
      #  email configurations
